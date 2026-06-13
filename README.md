@@ -16,8 +16,8 @@ I help organisations cut through hype and build AI and cloud systems that actual
 
 I work in a variety of domains professionally but in my spare time been looking into solving some hardware limitations I've run into:
 
-- **[nbd-vram](https://github.com/c0dejedi/nbd-vram)** - CUDA daemon that backs an NBD block device with GPU VRAM. Turns your graphics card into a 1.3 GB/s swap device. No kernel module, no P2P API - just `dlopen(libcuda.so)` and a Unix socket.
-- **[llm-fit](https://github.com/c0dejedi/llm-fit)** - LD_PRELOAD hook that redirects `cudaMalloc` to `cudaMallocManaged`. Hypothesis: models slightly over VRAM capacity load fully on GPU via CUDA Unified Memory. Finding: works in a narrow ~200-300MB sweet spot. Beyond that, PCIe page migration is slower than Ollama's native CPU split.
+- **[nbd-vram](https://github.com/c0dejedi/nbd-vram)** - a CUDA daemon that backs an NBD block device with GPU VRAM. Turns your graphics card into a multi-threaded swap device (~2.7 GB/s sequential read, ~310k random 4K IOPS under load). No kernel module, no P2P API - just dlopen(libcuda.so) and a Unix socket.
+- **[llm-fit](https://github.com/c0dejedi/llm-fit)** - a LD_PRELOAD shim that routes CUDA allocations through unified memory and over-reports free VRAM, so Ollama/vLLM can fit more layers on the GPU. On an 8GB card with llama3.1:8b q8, 27 to 31 layers, performance goes from ~13 to ~22 tok/s.
 
 ## Writing
 
