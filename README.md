@@ -23,4 +23,4 @@ I work in a variety of domains professionally but in my spare time been looking 
 
 No-fluff takes on cloud strategy, AI architecture, and the decisions that separate good systems from great ones.
 
-→ [seanlobjoit.com](https://www.seanlobjoit.com) · [LinkedIn](https://linkedin.com/in/seanlobjoit)
+[seanlobjoit.com](https://www.seanlobjoit.com) · [LinkedIn](https://linkedin.com/in/seanlobjoit)
